@@ -163,3 +163,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 9
   bulletLife: 5
+  walls:
+    serializedVersion: 2
+    m_Bits: 64

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankSnap : MonoBehaviour
+public class TankRender : MonoBehaviour
 {
     [SerializeField] Transform visualTransform; // drag the child sprite object here
     [SerializeField] float step = 10f;          // degrees per snap increment
