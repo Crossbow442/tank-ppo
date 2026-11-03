@@ -161,8 +161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 796b0cef2eb834ca9a2d79b38de9cb9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  bulletLife: 5
-  walls:
+  speed: 4
+  bulletLife: 8
+  hitMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 72

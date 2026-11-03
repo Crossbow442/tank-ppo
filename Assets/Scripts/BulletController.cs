@@ -6,7 +6,7 @@ public class BulletController : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private int bulletLife;
-    [SerializeField] private LayerMask walls;
+    [SerializeField] private LayerMask hitMask;
 
     private float radius = 0.0625f;
     private float bulletOffset = 0.01f;
@@ -26,18 +26,34 @@ public class BulletController : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        moveVector = rb.position;
     }
 
     void FixedUpdate()
     {
         moveDistance = speed * Time.fixedDeltaTime;
-        rayHit = Physics2D.CircleCast(rb.position, radius, bulletVector, moveDistance, walls);
+        rayHit = Physics2D.CircleCast(rb.position, radius, bulletVector, moveDistance, hitMask);
 
         if (rayHit)
         {
-            rb.MovePosition(rayHit.centroid + rayHit.normal * bulletOffset);
-            bulletVector = Vector2.Reflect(bulletVector, rayHit.normal);  
+            if (rayHit.collider.gameObject.layer == 6)
+            {
+                if (rayHit.distance == 0)
+                {
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    rb.MovePosition(rayHit.centroid + rayHit.normal * bulletOffset);
+                    bulletVector = Vector2.Reflect(bulletVector, rayHit.normal);
+                }
+            }
+            else if (rayHit.collider.gameObject.layer == 3)
+            {
+                rayHit.collider.gameObject.GetComponent<TankController>().tankHit();
+
+                moveVector = rb.position + bulletVector * moveDistance;
+                rb.MovePosition(moveVector);
+            }
         }
         else
         {
