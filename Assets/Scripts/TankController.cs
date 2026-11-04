@@ -12,6 +12,8 @@ public class TankController : MonoBehaviour
     [SerializeField] private float muzzleOffset;
     [SerializeField] private float shotCooldown;
     [SerializeField] private bool useVelo;
+    [SerializeField] private bool trainingMode;
+    [SerializeField] private GameObject explosionParticles;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private LayerMask walls;
 
@@ -32,6 +34,10 @@ public class TankController : MonoBehaviour
     public void tankHit()
     {
         Debug.Log("Tank Hit");
+        if (!trainingMode)
+        {
+            Instantiate(explosionParticles, transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
     }
 
