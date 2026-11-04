@@ -312,7 +312,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.000000059604645, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2587353
+  m_Radius: 0.3
 --- !u!50 &485666543
 Rigidbody2D:
   serializedVersion: 4
@@ -373,6 +373,9 @@ MonoBehaviour:
   shotCooldown: 0.3
   useVelo: 0
   bulletPrefab: {fileID: 1859369728810193800, guid: ca8f8aaf68cd748d498e37042964f93b, type: 3}
+  walls:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
