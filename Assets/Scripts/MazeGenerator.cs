@@ -15,6 +15,8 @@ public class MazeGenerator : MonoBehaviour
     private bool[,] horizontalMatrix;
     private bool[,] verticalMatrix;
     private bool[,] visitedMatrix;
+    private Stack<Vector2Int> pastMoves;
+    private Vector2Int backtrackPos; 
     private bool up;
     private bool down;
     private bool left;
@@ -34,6 +36,7 @@ public class MazeGenerator : MonoBehaviour
         horizontalMatrix = new bool[columns, (rows - 1)];
         verticalMatrix = new bool[(columns - 1), rows];
         visitedMatrix = new bool[columns, rows];
+        pastMoves = new Stack<Vector2Int>();
 
         //Sets Wall Matrixes to all True
         for (int x = 0; x < horizontalMatrix.GetLength(0); x++)
@@ -56,9 +59,10 @@ public class MazeGenerator : MonoBehaviour
         //Randomly Generates the Maze Pattern
         chColumn = Random.Range(0, columns);
         chRow = Random.Range(0, rows);
+        pastMoves.Push(new Vector2Int(chColumn, chRow));
         cellsVisited = 0;
 
-        while (cellsVisited < columns * rows)
+        while (cellsVisited + 1 < columns * rows)
         {
             visitedMatrix[chColumn, chRow] = true;
 
@@ -95,8 +99,11 @@ public class MazeGenerator : MonoBehaviour
             
             if (count == 0)
             {
-                Debug.Log("geeg");
-                break;
+                pastMoves.Pop();
+                backtrackPos = pastMoves.Peek();
+                chColumn = backtrackPos.x;
+                chRow = backtrackPos.y;
+                continue;
             }
 
             carl = true;
@@ -108,27 +115,32 @@ public class MazeGenerator : MonoBehaviour
 
                 if (rand == 0 && right)
                 {
+                    verticalMatrix[chColumn, chRow] = false;
                     chColumn += 1;
                     carl = false;
                 }
                 if (rand == 1 && left)
                 {
+                    verticalMatrix[chColumn - 1, chRow]= false;
                     chColumn -= 1;
                     carl = false;
                 }
                 if (rand == 2 && up)
                 {
+                    horizontalMatrix[chColumn, chRow] = false;
                     chRow += 1;
                     carl = false;
                 }
                 if (rand == 3 && down)
                 {
+                    horizontalMatrix[chColumn, chRow - 1] = false;
                     chRow -= 1;
                     carl = false;
                 }
                 //
-            }   
-        
+            }
+
+            pastMoves.Push(new Vector2Int(chColumn, chRow));
             cellsVisited += 1;
         }
         //
