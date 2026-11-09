@@ -7,6 +7,7 @@ public class MazeGenerator : MonoBehaviour
 
     [SerializeField] private int columns;
     [SerializeField] private int rows;
+    [SerializeField] private int knockDownChance;
     [SerializeField] private float cellSize;
     [SerializeField] private Transform mazeParent;
     [SerializeField] private GameObject horizontalWall;
@@ -65,8 +66,6 @@ public class MazeGenerator : MonoBehaviour
         while (cellsVisited + 1 < columns * rows)
         {
             visitedMatrix[chColumn, chRow] = true;
-
-            Debug.Log("[" + chColumn + "," + chRow + "]");
 
             count = 0;
             up = false;
@@ -142,6 +141,40 @@ public class MazeGenerator : MonoBehaviour
 
             pastMoves.Push(new Vector2Int(chColumn, chRow));
             cellsVisited += 1;
+        }
+        //
+
+        //Knocks Out a Couple More Walls
+        for (int x = 0; x < horizontalMatrix.GetLength(0); x++)
+        {
+            for (int y = 0; y < horizontalMatrix.GetLength(1); y++)
+            {
+                if (horizontalMatrix[x, y])
+                {
+                    rand = Random.Range(1, knockDownChance);
+
+                    if (rand == 1)
+                    {
+                        horizontalMatrix[x, y] = false;
+                    }
+                }
+            }
+        }
+
+        for (int x = 0; x < verticalMatrix.GetLength(0); x++)
+        {
+            for (int y = 0; y < verticalMatrix.GetLength(1); y++)
+            {
+                if (verticalMatrix[x, y])
+                {
+                    rand = Random.Range(1, knockDownChance);
+
+                    if (rand == 1)
+                    {
+                        verticalMatrix[x, y] = false;
+                    }
+                }
+            }
         }
         //
 

@@ -551,6 +551,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   columns: 9
   rows: 5
+  knockDownChance: 10
   cellSize: 2
   mazeParent: {fileID: 591881232}
   horizontalWall: {fileID: 4923922429936092323, guid: 1eb2fbe8c8ed845cfb197b6a943ddb99, type: 3}
