@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -151,9 +150,9 @@ public class MazeGenerator : MonoBehaviour
             {
                 if (horizontalMatrix[x, y])
                 {
-                    rand = Random.Range(1, knockDownChance);
+                    rand = Random.Range(0, knockDownChance);
 
-                    if (rand == 1)
+                    if (rand == 0)
                     {
                         horizontalMatrix[x, y] = false;
                     }
@@ -211,10 +210,5 @@ public class MazeGenerator : MonoBehaviour
         bottomEdge = -rows * cellSize / 2f;
 
         wallGen();
-    }
-
-    void Update()
-    {
-
     }
 }

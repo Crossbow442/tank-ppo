@@ -286,7 +286,6 @@ GameObject:
   - component: {fileID: 485666541}
   - component: {fileID: 485666543}
   - component: {fileID: 485666542}
-  - component: {fileID: 485666544}
   - component: {fileID: 485666545}
   m_Layer: 3
   m_Name: Tank
@@ -373,20 +372,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &485666544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485666539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42d236c44798e4fdb864e2a974934225, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visualTransform: {fileID: 226719472}
-  step: 10
 --- !u!114 &485666545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,7 +389,6 @@ MonoBehaviour:
   turnRate: 200
   muzzleOffset: 0.5
   shotCooldown: 0.3
-  useVelo: 0
   trainingMode: 0
   explosionParticles: {fileID: 6510038232129322637, guid: 8d78ab8b16e299f49ac232f0e1796d6f, type: 3}
   bulletPrefab: {fileID: 1859369728810193800, guid: ca8f8aaf68cd748d498e37042964f93b, type: 3}
