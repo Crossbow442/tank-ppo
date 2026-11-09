@@ -18,7 +18,7 @@ public class TankController : MonoBehaviour
     private float turn;
     private float tankRotation;
     private float timeSinceShot;
-    private float radius = 0.3f;
+    private float radius = 0.35f;
     private float wallOffset = 0.01f;
     private float moveDistance;
     private bool shot;
