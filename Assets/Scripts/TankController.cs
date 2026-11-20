@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 //git-exo-checkid001
@@ -11,7 +9,6 @@ public class TankController : MonoBehaviour
     [SerializeField] private float turnRate;
     [SerializeField] private float muzzleOffset;
     [SerializeField] private float shotCooldown;
-    [SerializeField] private bool useVelo;
     [SerializeField] private bool trainingMode;
     [SerializeField] private GameObject explosionParticles;
     [SerializeField] private GameObject bulletPrefab;

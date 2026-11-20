@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BulletController : MonoBehaviour
@@ -8,7 +6,7 @@ public class BulletController : MonoBehaviour
     [SerializeField] private int bulletLife;
     [SerializeField] private LayerMask hitMask;
 
-    private float radius = 0.0625f;
+    private float radius = 0.0625f * 2f;
     private float bulletOffset = 0.01f;
     private float moveDistance;
     private Vector2 bulletVector;
