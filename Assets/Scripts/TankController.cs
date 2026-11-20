@@ -21,7 +21,7 @@ public class TankController : MonoBehaviour
     private float turn;
     private float tankRotation;
     private float timeSinceShot;
-    private float radius = 0.3f;
+    private float radius = 0.35f;
     private float wallOffset = 0.01f;
     private float moveDistance;
     private bool shot;
@@ -71,7 +71,6 @@ public class TankController : MonoBehaviour
         {
             if (rayHit)
             {
-                moveVector = new Vector2(0f, 0f);
                 rb.MovePosition(rayHit.centroid + rayHit.normal * wallOffset);
             }
             else
@@ -83,7 +82,6 @@ public class TankController : MonoBehaviour
         {
             if (rayHit)
             {
-                moveVector = new Vector2(0f, 0f);
                 rb.MovePosition(rayHit.centroid + rayHit.normal * wallOffset);
             }
             else

@@ -66,8 +66,6 @@ public class MazeGenerator : MonoBehaviour
         {
             visitedMatrix[chColumn, chRow] = true;
 
-            Debug.Log("[" + chColumn + "," + chRow + "]");
-
             count = 0;
             up = false;
             down = false;
@@ -178,10 +176,5 @@ public class MazeGenerator : MonoBehaviour
         bottomEdge = -rows * cellSize / 2f;
 
         wallGen();
-    }
-
-    void Update()
-    {
-
     }
 }

@@ -286,7 +286,6 @@ GameObject:
   - component: {fileID: 485666541}
   - component: {fileID: 485666543}
   - component: {fileID: 485666542}
-  - component: {fileID: 485666544}
   - component: {fileID: 485666545}
   m_Layer: 3
   m_Name: Tank
@@ -345,7 +344,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.000000059604645, y: 0}
   serializedVersion: 2
-  m_Radius: 0.3
+  m_Radius: 0.35
 --- !u!50 &485666543
 Rigidbody2D:
   serializedVersion: 4
@@ -373,20 +372,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &485666544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 485666539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42d236c44798e4fdb864e2a974934225, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  visualTransform: {fileID: 226719472}
-  step: 10
 --- !u!114 &485666545
 MonoBehaviour:
   m_ObjectHideFlags: 0
